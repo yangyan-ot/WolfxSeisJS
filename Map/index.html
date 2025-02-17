@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SeisJS测站地图</title>
+  <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <style>
+    html, body, #container {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      position: relative;
+    }
+    .title {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.5em 1em;
+      border-radius: 2px;
+      font-weight: 500;
+      font-size: 16px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      z-index: 1000;
+    }
+    .update-time {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 14px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 5px;
+      border-radius: 4px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+    }
+    .reset-button {
+      margin-left: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .reset-button:hover {
+      background-color: #0056b3;
+    }
+    #gradient-bar {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      z-index: 1000;
+    }
+    #station-list {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      width: 200px;
+      max-height: calc(100% - 100px); /* 初始高度 */
+      overflow-y: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 10px;
+      border-radius: 4px;
+      z-index: 1000;
+    }
+    #station-list h4 {
+      margin-top: 0;
+      font-size: 16px;
+    }
+    #station-list ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    #station-list li {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+    #station-list .station-info {
+      display: flex;
+      flex-direction: column;
+    }
+    #top-right-link {
+  position: absolute;
+  top: 10px; /* 距离顶部的距离 */
+  right: 10px; /* 距离右侧的距离 */
+  z-index: 1000; /* 确保链接显示在地图上方 */
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明背景色 */
+  padding: 5px 10px; /* 内边距 */
+  border-radius: 4px; /* 圆角 */
+}
+#top-right-link a {
+  color: white; /* 链接文字颜色 */
+  text-decoration: none; /* 移除下划线 */
+}
+
+#top-right-link a:hover {
+  text-decoration: underline; /* 鼠标悬停时显示下划线 */
+}
+.station-info-box {
+  position: absolute;
+  bottom: 60px; /* 根据实际情况调整距离底部的距离 */
+  right: 10px;
+  font-size: 14px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 4px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <div class="title">SeisJS测站地图 V250215</div>
+  <div id="top-right-link">
+  <a href="/wolfxseisjs/describe/" target="_blank">关于</a>
+</div>
+  <div class="update-time" id="update-time">
+    <span id="last-update-time">更新时间: 请求中...</span>
+    <button class="reset-button" id="reset-button">重置视图</button>
+  </div>
+  <div id="gradient-bar">
+    <img id="gradient-image" src="nied.png" alt="震度渐变图">
+  </div>
+  <div id="station-list">
+    <h4>测站列表</h4>
+    <ul id="station-items"></ul>
+  </div>
+  <script src="https://webapi.amap.com/maps?v=2.0&key=73ea624dd012d92f4153cf4d10d2ad52"></script>
+  <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SeisJS地震监测站数据展示</title>
+<style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+</style>
+</head>
+<body>
+<table id="seismicData">
+  <tr>
+    <th>位置</th>
+    <th>PGA</th>
+    <th>PGV</th>
+    <th>PGD</th>
+    <th>最大PGA</th>
+    <th>最大PGV</th>
+    <th>最大PGD</th>
+    <th>烈度</th>
+    <th>最大烈度</th>
+    <th>震度</th>
+    <th>最大震度</th>
+  </tr>
+</table>
+<div id="lastUpdated">更新时间: 未更新</div>
+  <h4>SeisJS地震监测站数据-V250215 | Powered by WolfxSeisJS | YiYunStudio</h4>
+  <h6>*注：次版本过滤了countryName里非"中国"的测站，如发现没有自己的站点，请检查是否更新SeisJS SeisJS版本现为：20v</h6>
+  <a href="/wolfxseisjs/describe/" target="_self">地图版</a>
+  </div>
+</div>
+<script src="index.js"></script>
+</body>
+</html>

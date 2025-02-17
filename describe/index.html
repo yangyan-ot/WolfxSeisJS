@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeisJSMap-描述</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .description {
+            margin-bottom: 30px;
+        }
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        img {
+            max-width: 50%; /* 图片最大宽度为容器的50% */
+            height: auto; /* 高度自动调整以保持比例 */
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="description">
+    <h1>SeisJSMap-描述</h1>
+    <p>SeisJSMap是基于Wolfx SeisJS 项目来制作的一个SeisJS测站显示网站</p>
+    <p>引用：</p>
+    <a href="https://wolfx.jp/seisjs/" target="_blank">Wolfx SeisJS项目</a>
+    <br>
+    <a href="https://www.bosai.go.jp/e/index.html" target="_blank">使用了NIED的震度渐变条</a>
+    <br>
+    <a href="https://jquake.net/" target="_blank">使用了JQuake的音效</a>
+    <br>
+    <h2>版本日志：V241126</h2>
+    <p>修复了测站触发后地图缩放问题（直接把缩放代码扔了😋）</p>
+    <p>保留了测站触发后以当前zoom移动到触发测站位置</p>
+    <p>更新各个震度的音效</p>
+    <p>（非电脑端测站位置显示错误的BUG仍然没修）</p>
+    <h2>版本日志：V241208</h2>
+    <p>测站颜色不再单一，已进行插值处理，平滑的颜色~😋</p>
+    <p>（非电脑端（实测1920x1080无缩放分辨率没问题）测站位置显示错误的BUG仍然没修😭）</p>
+    <h2>版本日志：V250215</h2>
+    <p>修复测站点位颜色白框bug~😋</p>
+    <p>测站位置显示错误的BUG终于修了😭😭😭（DeepSeek无敌）</p>
+</div>
+
+<button onclick="window.location.href='/wolfxseisjs/Map/index.html'">已了解，点击前往地图页面</button>
+<br>
+<img src="SeisJSMap.png" alt="示例图片">
+
+</body>
+</html>
